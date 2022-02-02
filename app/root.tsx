@@ -10,13 +10,17 @@ import {
 import type {MetaFunction} from 'remix'
 
 import styles from './styles/app.css'
+import globalStyles from './styles/global.css'
 
 export const meta: MetaFunction = () => {
   return {title: 'New Remix App'}
 }
 
 export function links() {
-  return [{rel: 'stylesheet', href: styles}]
+  return [
+    {rel: 'stylesheet', href: styles},
+    {rel: 'stylesheet', href: globalStyles},
+  ]
 }
 
 export default function App() {
@@ -28,7 +32,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-background">
         <h1 className="text-3xl font-bold underline">Hello world!</h1>
         <Outlet />
         <ScrollRestoration />
